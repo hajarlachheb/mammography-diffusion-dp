@@ -1,0 +1,20 @@
+Revisiting Privacy-Preserving Mammography Classification with Conditional Diffusion
+Copyright 2026 Hajar Lachheb
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It builds on work licensed under the Apache License, Version 2.0:
+
+  * mammo_dp (https://github.com/RichardObi/mammo_dp), Osuala et al.: the DP-SGD classifier recipe and the reference
+    Swin-T head followed by src/mammo_diffusion_dp/classification/, the patch-dataset layout, and the published MCGAN
+    image file names recorded in configs/experiments/mcgan_pool_name_mapping.csv (names and hashes only; no images).
+  * ccnet (https://github.com/RichardObi/ccnet), Osuala et al.: the latent-diffusion training approach followed by
+    src/mammo_diffusion_dp/generation/train_ldm_ccnet.py and generate_ldm_ccnet.py.
+
+Modifications for this release (Apache-2.0 section 4(b)):
+  * src/mammo_diffusion_dp/generation/train_ldm_ccnet.py: one usage example in the module docstring changed from a
+    machine-specific path to "data/cbis-ddsm/train". No code changed.
+  * Files under src/mammo_diffusion_dp/{data,evaluation,metrics,privacy,visualization} are ported from the project's
+    analysis scripts; each module docstring states its origin and what changed (path handling only).
+  * src/mammo_diffusion_dp/classification/train_classifier.py and evaluate_classifier.py are unchanged from the
+    versions used for the reported experiments.

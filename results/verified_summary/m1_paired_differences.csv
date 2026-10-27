@@ -1,0 +1,73 @@
+comparison,dataset,metric,level,difference,test_sampling_ci95_lo,test_sampling_ci95_hi,seed_sd_ddof1,n_seeds_positive,seed_t95
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auroc,seed 42,0.03889249967502928,0.0038501973270093945,0.07022205917968051,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auroc,seed 43,0.042792148706616406,0.006441451882578645,0.07872234355824022,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auroc,seed 44,-0.001507864292213723,-0.03650598561597399,0.032831585976895825,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auroc,mean of 3 seed-matched pairs,0.026725594696477322,-0.004037089194943504,0.05498085477856684,0.024528513417897222,2,"[-0.034, 0.088]"
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_malignant,seed 42,0.04697936824528792,0.012431645552037369,0.07682227578690386,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_malignant,seed 43,0.08636589460453692,0.03400151478321101,0.1324167766317846,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_malignant,seed 44,0.03873618639231835,0.0009658617776288988,0.07504589395404546,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_malignant,mean of 3 seed-matched pairs,0.0573604830807144,0.022883550904499804,0.08776860305441249,0.025455312510652937,3,"[-0.006, 0.121]"
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_benign,seed 42,0.020894908004968737,-0.009692533467785314,0.05370760920600294,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_benign,seed 43,0.011132744010092899,-0.022597974663208547,0.049875732783061226,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_benign,seed 44,-0.010644896642740376,-0.05199238963455617,0.028128227084413072,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),cbis,auprc_benign,mean of 3 seed-matched pairs,0.007127585124107087,-0.021019876763862372,0.038013163709537216,0.016146850856448965,2,"[-0.033, 0.047]"
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auroc,seed 42,0.0497909199522103,0.02714987687642326,0.07363802629526771,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auroc,seed 43,0.06196734368777379,0.02930448619067288,0.09360639219044696,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auroc,seed 44,0.07341032789061464,0.040638850371695436,0.10392721965932482,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auroc,mean of 3 seed-matched pairs,0.061722863843532906,0.037467504772702595,0.08496204113270214,0.011811601738793493,3,"[0.032, 0.091]"
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_malignant,seed 42,0.05170103829404915,0.022439672763022857,0.08202081490579628,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_malignant,seed 43,0.07413609039637914,0.03073517216977143,0.11394834353242757,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_malignant,seed 44,0.07376509190860914,0.03875821143322883,0.10643626230187006,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.06653407353301248,0.0354840268852741,0.09709847578826661,0.012847124610967535,3,"[0.035, 0.098]"
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_benign,seed 42,0.036970789173014995,0.01725166267033579,0.05803405506384135,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_benign,seed 43,0.0696849649496829,0.03402007159245368,0.10094495375974197,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_benign,seed 44,0.06791943328985728,0.03803942277822152,0.09470147510373128,,,
+C - M1 (primary: synthetic records beyond matched DP mechanics),bcdr,auprc_benign,mean of 3 seed-matched pairs,0.05819172913751839,0.03378953481062378,0.08023509816846253,0.018399062346849494,3,"[0.012, 0.104]"
+M1 - A (effect of the DP mechanics alone),cbis,auroc,seed 42,0.030807227349538557,0.003775698233985148,0.05700771111660257,,,
+M1 - A (effect of the DP mechanics alone),cbis,auroc,seed 43,0.03644871961523466,0.015602301100896516,0.0584381177806353,,,
+M1 - A (effect of the DP mechanics alone),cbis,auroc,seed 44,-0.0006239438450539314,-0.017482405751644527,0.015433584256056827,,,
+M1 - A (effect of the DP mechanics alone),cbis,auroc,mean of 3 seed-matched pairs,0.022210667706573095,0.0038869639942585204,0.03884815850647155,0.01997551556984828,2,"[-0.027, 0.072]"
+M1 - A (effect of the DP mechanics alone),cbis,auprc_malignant,seed 42,0.04063445329091403,0.00950968140348697,0.06775180735258245,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_malignant,seed 43,0.04524881717700757,0.015135832159863959,0.07899876182494579,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_malignant,seed 44,0.017550611774953095,-0.004176886419381573,0.036940697557655736,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_malignant,mean of 3 seed-matched pairs,0.0344779607476249,0.011749347339381462,0.05516334278419134,0.014839961116872273,3,"[-0.002, 0.071]"
+M1 - A (effect of the DP mechanics alone),cbis,auprc_benign,seed 42,0.03115003562505081,0.007714540453596669,0.049645450062634766,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_benign,seed 43,0.021026115895857456,0.004997378874385894,0.036894678595536134,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_benign,seed 44,-0.0009765841316899948,-0.017579312277220798,0.013916262146734687,,,
+M1 - A (effect of the DP mechanics alone),cbis,auprc_benign,mean of 3 seed-matched pairs,0.017066522463072758,0.001779014939923294,0.030533062735629116,0.016425246097494732,2,"[-0.024, 0.058]"
+M1 - A (effect of the DP mechanics alone),bcdr,auroc,seed 42,0.03208217177751227,0.0198323564162767,0.04553005699519599,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auroc,seed 43,0.032020775255542366,0.01659629158834444,0.046912067999988545,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auroc,seed 44,0.0238915438736228,0.013165532045954548,0.034455919140141664,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auroc,mean of 3 seed-matched pairs,0.02933149696889248,0.018089883301044874,0.040500827040879865,0.004711237591363666,3,"[0.018, 0.041]"
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_malignant,seed 42,0.03504531768281416,0.020001550359841597,0.04802563552969244,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_malignant,seed 43,0.03482369676650271,0.019141584545529892,0.04926669510328902,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_malignant,seed 44,0.0258684602144571,0.013249751484128738,0.036485348127072346,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.031912491554591325,0.01867912538059606,0.04325992631325144,0.0052354574860302506,3,"[0.019, 0.045]"
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_benign,seed 42,0.022306616446502336,0.008623245327188823,0.03686091969744294,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_benign,seed 43,0.025239940011769657,0.00979997706621491,0.038605432390534405,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_benign,seed 44,0.027202065180700008,0.016254136961495663,0.0387407548165258,,,
+M1 - A (effect of the DP mechanics alone),bcdr,auprc_benign,mean of 3 seed-matched pairs,0.024916207212990666,0.013824721989987342,0.03564177483694337,0.0024637282258892423,3,"[0.019, 0.031]"
+"C - A (total effect, = Stage 1)",cbis,auroc,seed 42,0.06969972702456784,0.013370421654385437,0.12134301760288625,,,
+"C - A (total effect, = Stage 1)",cbis,auroc,seed 43,0.07924086832185107,0.027541999813313903,0.13169688334388685,,,
+"C - A (total effect, = Stage 1)",cbis,auroc,seed 44,-0.0021318081372676545,-0.047908647581507625,0.04414126844071619,,,
+"C - A (total effect, = Stage 1)",cbis,auroc,mean of 3 seed-matched pairs,0.048936262403050414,0.007028385121758134,0.08815008991152806,0.04448279685279308,2,"[-0.062, 0.159]"
+"C - A (total effect, = Stage 1)",cbis,auprc_malignant,seed 42,0.08761382153620195,0.03333698568761275,0.13164741758246026,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_malignant,seed 43,0.1316147117815445,0.06393168690267054,0.1955749502951133,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_malignant,seed 44,0.056286798167271446,0.006680452518004904,0.10469452257398057,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_malignant,mean of 3 seed-matched pairs,0.09183844382833929,0.044816018728626866,0.13490877752828004,0.0378412369975304,3,"[-0.002, 0.186]"
+"C - A (total effect, = Stage 1)",cbis,auprc_benign,seed 42,0.05204494363001955,0.005585190249940866,0.09589219801072214,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_benign,seed 43,0.032158859905950354,-0.012539154521462407,0.07935262167894258,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_benign,seed 44,-0.01162148077443037,-0.061678724792277186,0.03457299806558686,,,
+"C - A (total effect, = Stage 1)",cbis,auprc_benign,mean of 3 seed-matched pairs,0.024194107587179842,-0.014190104695219762,0.06407887682404576,0.03257194127982556,2,"[-0.057, 0.105]"
+"C - A (total effect, = Stage 1)",bcdr,auroc,seed 42,0.08187309172972257,0.05256881430495083,0.11311920025163602,,,
+"C - A (total effect, = Stage 1)",bcdr,auroc,seed 43,0.09398811894331616,0.0509444925403498,0.13411015293398645,,,
+"C - A (total effect, = Stage 1)",bcdr,auroc,seed 44,0.09730187176423744,0.05662929886319649,0.1339461887281749,,,
+"C - A (total effect, = Stage 1)",bcdr,auroc,mean of 3 seed-matched pairs,0.09105436081242539,0.05918860709329366,0.12063484199246362,0.008122008120919783,3,"[0.071, 0.111]"
+"C - A (total effect, = Stage 1)",bcdr,auprc_malignant,seed 42,0.08674635597686331,0.0480492204792127,0.12464948310937111,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_malignant,seed 43,0.10895978716288185,0.056679352812506634,0.15453995596179937,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_malignant,seed 44,0.09963355212306624,0.056333431182767284,0.13674584791938146,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.0984465650876038,0.05811087157671877,0.1352196511274178,0.011154184637648877,3,"[0.071, 0.126]"
+"C - A (total effect, = Stage 1)",bcdr,auprc_benign,seed 42,0.05927740561951733,0.030563351614629083,0.09084052842332517,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_benign,seed 43,0.09492490496145256,0.04825359116933971,0.13454679466743033,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_benign,seed 44,0.09512149847055729,0.058955814462919046,0.127542820491934,,,
+"C - A (total effect, = Stage 1)",bcdr,auprc_benign,mean of 3 seed-matched pairs,0.08310793635050906,0.05145384484722321,0.11163611282382244,0.020638079087999237,3,"[0.032, 0.134]"

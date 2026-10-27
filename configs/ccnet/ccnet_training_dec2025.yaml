@@ -1,0 +1,27 @@
+# Arguments of the CC-NET training run that produced the generator behind the reported synthetic pool, copied from
+# the run's log (argument dump, 2025-12-16). The machine-specific data_path / output_dir values are replaced by
+# descriptions. The training script revision used for this run was not preserved; see docs/experiments.md.
+data_path: "<data root>/cbis-ddsm/train  (exact image list not saved; inferred to be the 1,104 training images)"
+output_dir: "<output dir>"
+source_model: Manojb/stable-diffusion-2-1-base
+image_size: 256
+n_epochs: 25
+batch_size: 4
+gradient_accumulation_steps: 64
+base_lr: 1.0e-4
+lr_warmup_steps: 500
+num_train_timesteps: 1000
+beta_schedule: scaled_linear
+fine_tune: true
+scale_factor: 0.1
+mixed_precision: fp16
+num_workers: 8
+checkpoint_name: diffusion_best_model.pth
+resume_from: null
+eval_freq: 10
+seed: 2
+clip_grad_norm_by: 1.0
+snr_gamma: null
+differential_privacy: none
+# outcome recorded in the checkpoint / training_info.json
+selected_checkpoint: {epoch: 22, best_training_loss: 0.10683121596736347, optimizer_steps: 110}

@@ -1,0 +1,57 @@
+# Clean Richard-compatible protocol: every reported classifier run (21 runs) was launched with exactly these
+# arguments. Source: the project launchers run_clean_richard_stage1.sh, run_clean_richard_stage2.sh and
+# run_clean_richard_m1.sh (only machine paths removed). scripts/run_experiment.py turns this file into commands.
+#
+# Path placeholders are filled from the environment (see .env.example):
+#   {work_dir}    $MDPD_WORK_DIR    (contains clean_training_folders/ from scripts/prepare_data.py build-folders)
+#   {data_root}   $MDPD_DATA_ROOT   (dataset16062024 layout)
+#   {results_dir} $MDPD_RESULTS_DIR (one sub-directory per run ID)
+
+train_script: src/mammo_diffusion_dp/classification/train_classifier.py
+eval_script: src/mammo_diffusion_dp/classification/evaluate_classifier.py
+
+paths:
+  real_train: "{work_dir}/clean_training_folders/real_train"
+  realsyn_train: "{work_dir}/clean_training_folders/realsyn_train"
+  val: "{data_root}/cbis-ddsm/val"
+  cbis_test: "{data_root}/cbis-ddsm/test"
+  bcdr_test: "{data_root}/bcdr/test"
+
+# identical for every run (order as in the launchers)
+common_train_args: >-
+  --model swin_t --pretrained --head_type ref_mlp --freeze_backbone --unfreeze_last_n 1
+  --epochs 300 --learning_rate 0.00001 --weight_decay 0.00000001
+  --optimizer adamw --label_smoothing 0.1
+  --simple_augmentation --normalize_05 --select_by_auprc --no_early_stopping --richard_finetuning
+  --device cuda --num_workers 4
+  --enable_dp --delta 0.0001 --max_grad_norm 1.0 --dp_accountant rdp
+  --max_physical_batch_size 32 --dp_require_epsilon_near_target_for_selection
+
+eval_args: >-
+  --model swin_t --device cuda --batch_size 128 --normalize_05 --positive_class both --save_predictions
+
+seeds: [42, 43, 44]
+
+conditions:
+  real_only:            # A. reproduction of the Real-only arm of Osuala et al.
+    train_folder: real_train
+    batch_size: 128
+    epsilons: [1, 6, 60]
+    run_id:
+      6: "CLEAN_RICHARD_S1_real_swin_refmlp_head_dp_eps6_seed{seed}"
+      1: "CLEAN_RICHARD_S2_real_swin_refmlp_head_dp_eps1_seed{seed}"
+      60: "CLEAN_RICHARD_S2_real_swin_refmlp_head_dp_eps60_seed{seed}"
+  real_ccnet:           # B. 1,104 real + 3,000 CC-NET images in one DP-SGD mechanism
+    train_folder: realsyn_train
+    batch_size: 128
+    epsilons: [1, 6, 60]
+    run_id:
+      6: "CLEAN_RICHARD_S1_realsyn_swin_refmlp_head_dp_eps6_seed{seed}"
+      1: "CLEAN_RICHARD_S2_realsyn_swin_refmlp_head_dp_eps1_seed{seed}"
+      60: "CLEAN_RICHARD_S2_realsyn_swin_refmlp_head_dp_eps60_seed{seed}"
+  m1_matched:           # C. optimisation control: Real-only with B's sampling rate, sigma and step count (eps 6 only)
+    train_folder: real_train
+    batch_size: 34
+    epsilons: [6]
+    run_id:
+      6: "CLEAN_RICHARD_M1_real_bs34_swin_refmlp_head_dp_eps6_seed{seed}"

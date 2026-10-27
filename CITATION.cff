@@ -1,0 +1,44 @@
+# Author metadata was confirmed by the author. No DOI or publication status has been assumed.
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and cite Osuala et al. (2024)."
+type: software
+title: "Revisiting Privacy-Preserving Mammography Classification with Conditional Diffusion"
+version: 0.1.0
+license: Apache-2.0
+authors:
+  - given-names: Hajar
+    family-names: Lachheb
+    affiliation: "Universitat de Barcelona (University of Barcelona), Spain"
+repository-code: "https://github.com/hajarlachheb/mammography-diffusion-dp"
+date-released: 2026-10-27
+
+# preferred-citation: "TODO-AUTHOR-REVIEW (manuscript details after review; no venue/DOI assumed)"
+references:
+  - type: article
+    title: "Enhancing the Utility of Privacy-Preserving Cancer Classification using Synthetic Data"
+    authors:
+      - {family-names: Osuala, given-names: Richard}
+      - {family-names: Lang, given-names: Daniel M.}
+      - {family-names: Riess, given-names: Anneliese}
+      - {family-names: Kaissis, given-names: Georgios}
+      - {family-names: Szafranowska, given-names: Zuzanna}
+      - {family-names: Skorupko, given-names: Grzegorz}
+      - {family-names: Diaz, given-names: Oliver}
+      - {family-names: Schnabel, given-names: Julia A.}
+      - {family-names: Lekadir, given-names: Karim}
+    year: 2024
+    journal: "arXiv preprint arXiv:2407.12669"
+    url: "https://arxiv.org/abs/2407.12669"
+  - type: software
+    title: "mammo_dp"
+    authors:
+      - {family-names: Osuala, given-names: Richard}
+    url: "https://github.com/RichardObi/mammo_dp"
+    license: Apache-2.0
+  - type: software
+    title: "ccnet (ContrastControlNet), official repository of: Towards learning contrast kinetics with multi-condition latent diffusion models"
+    authors:
+      - {family-names: Osuala, given-names: Richard}
+      - {name: "and others (complete list: see the repository's citation)"}
+    url: "https://github.com/RichardObi/ccnet"
+    license: Apache-2.0

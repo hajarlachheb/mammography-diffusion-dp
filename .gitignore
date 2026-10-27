@@ -1,0 +1,67 @@
+# ---- secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.ovpn
+.netrc
+credentials*
+secrets*
+
+# ---- datasets and medical images (never commit; see DATA_REDISTRIBUTION_AUDIT.md)
+/data/
+/datasets/
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+# tracked publication figures are re-included explicitly
+!figures/publication/*.png
+
+# ---- model weights and checkpoints
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.pkl
+models/
+checkpoints/
+
+# ---- experiment outputs, caches and logs
+runs/
+work/
+outputs/
+wandb/
+mlruns/
+*.log
+*.npz
+*.npy
+*.h5
+cache/
+.cache/
+
+# ---- Python / environments / tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+*.zip
+config/dp_config.yaml
+config/base_config.yaml

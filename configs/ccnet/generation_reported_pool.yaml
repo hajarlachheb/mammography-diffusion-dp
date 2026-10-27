@@ -1,0 +1,9 @@
+# Generation of the 3,000-image CC-NET pool used in the reported Real+CC-NET runs (created 2026-02-27).
+# The command and sampler settings were NOT recorded. Only these properties are verified from the pool itself:
+num_samples_per_class: 1500          # 1,500 is_benign_true + 1,500 is_benign_false
+image_size: 256                      # 256x256 RGB, three identical channels (checked for all 3,000 files)
+file_names: "syn_ldm_{benign,malignant}_NNNN.png"
+generator_checkpoint: "epoch-22 checkpoint of configs/ccnet/ccnet_training_dec2025.yaml (inferred)"
+unknown: [scheduler, num_inference_steps, guidance_scale, seed]
+# generate_ldm_ccnet.py defaults (reference only, not evidence of what was used):
+#   scheduler ddim, num_inference_steps 100, guidance_scale 1.0, seed 42

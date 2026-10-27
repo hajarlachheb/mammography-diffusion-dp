@@ -1,0 +1,32 @@
+# Noise multipliers used in the reported runs. They are NOT passed to the trainer: train_classifier.py calibrates
+# sigma itself from --epsilon via Opacus make_private_with_epsilon. The values below were read back from the saved
+# checkpoints of every run and re-derived with scripts/calculate_privacy.py (RDP accountant, Opacus 1.5.4).
+# delta = 1e-4, clipping norm C = 1.0, 300 epochs, Poisson sampling with q = 1 / ceil(N / batch_size).
+# epsilon_full_run is the budget after all 300 epochs (the figure to report); the epsilon at the selected
+# checkpoint is lower in some runs and is recorded per run in results/verified_summary/.
+delta: 1.0e-4
+max_grad_norm: 1.0
+epochs: 300
+accountant: rdp
+conditions:
+  real_only:          # A: 1,104 real images, batch 128 -> q = 1/9, 9 steps/epoch, 2,700 steps
+    N: 1104
+    batch_size: 128
+    sample_rate: 0.1111111111111111
+    expected_batch_size_divisor: 122
+    sigma: {1: 20.3125, 6: 4.3359375, 60: 0.9613037109375}
+    epsilon_full_run: {1: 0.99921, 6: 5.99751, 60: 59.99330}
+  real_ccnet:         # B: 1,104 real + 3,000 CC-NET, batch 128 -> q = 1/33, 33 steps/epoch, 9,900 steps
+    N: 4104
+    batch_size: 128
+    sample_rate: 0.030303030303030304
+    expected_batch_size_divisor: 124
+    sigma: {1: 10.625, 6: 2.34375, 60: 0.6830978393554688}
+    epsilon_full_run: {1: 0.99936, 6: 5.99212, 60: 59.99294}
+  m1_matched:         # C (control, eps 6 only): 1,104 real, batch 34 -> q = 1/33, 33 steps/epoch, 9,900 steps
+    N: 1104
+    batch_size: 34
+    sample_rate: 0.030303030303030304
+    expected_batch_size_divisor: 33
+    sigma: {6: 2.34375}
+    epsilon_full_run: {6: 5.99212}

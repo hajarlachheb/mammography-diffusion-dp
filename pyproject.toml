@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mammo-diffusion-dp"
+version = "0.1.0"
+description = "Research code: privacy-preserving (DP-SGD) mammography mass classification with CC-NET synthetic data, extending Osuala et al. (2024)"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+# Versions used for every reported run: torch 2.5.1, torchvision 0.20.1, opacus 1.5.4 (see requirements.txt).
+dependencies = [
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "opacus==1.5.4",
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "pillow",
+    "pyyaml",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+generation = ["diffusers==0.30.3", "transformers==4.45.2", "accelerate==1.0.1"]
+quality = ["pytorch-fid==0.3.0", "frd-score==1.0.1"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

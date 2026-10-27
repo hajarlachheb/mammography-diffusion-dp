@@ -1,0 +1,73 @@
+epsilon_target,comparison,dataset,metric,level,difference,test_sampling_ci95_lo,test_sampling_ci95_hi,seed_sd_ddof1,n_seeds_positive,seed_t95
+1,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 42 (same seed, same test images and patient draws)",0.0751332380085793,0.02833218911420955,0.11984388092167285,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 43 (same seed, same test images and patient draws)",0.0774730274275316,0.03775288208487941,0.11817046614856155,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 44 (same seed, same test images and patient draws)",0.03215910568048874,-0.006283620065474107,0.07109376710188796,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auroc,mean of 3 seed-matched pairs,0.06158845703886654,0.023425195448187917,0.09855389869129572,0.02551340225572435,3,"[-0.002, 0.125]"
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.07586363249280992,0.026270793412585525,0.1267288986033029,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.0682875200681266,0.03026359504608063,0.10822717446816511,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.07333865900568959,0.029163533366205405,0.11230211476492359,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,mean of 3 seed-matched pairs,0.07249660385554203,0.03554218827506871,0.11064423685188321,0.0038576109867089663,3,"[0.063, 0.082]"
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.06200923659667268,0.026717305897029368,0.09325443657173567,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.05508639407993776,0.022443693596356683,0.08462370415370274,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 44 (same seed, same test images and patient draws)",0.029348749347705594,-0.010495824489793712,0.06795011533983107,,,
+1,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,mean of 3 seed-matched pairs,0.04881479334143868,0.017458257187443354,0.07630998059253108,0.017209781773815207,3,"[0.006, 0.092]"
+1,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 42 (same seed, same test images and patient draws)",0.07545300677021105,0.05132709295028695,0.10011962785522019,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 43 (same seed, same test images and patient draws)",0.06776350723483338,0.0431435157335471,0.09116168622235045,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 44 (same seed, same test images and patient draws)",0.06755276782158498,0.04313238660294156,0.09130759027641168,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auroc,mean of 3 seed-matched pairs,0.07025642727554314,0.047197749216054456,0.0919938270433765,0.004501603226449035,3,"[0.059, 0.081]"
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.06967935303705003,0.04172368200602243,0.09713797799910799,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.0606659830478512,0.03480213055523809,0.08527221406111485,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.05799543150037617,0.03523943665431744,0.08193768964677879,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.06278025586175913,0.038701517528119046,0.08530479304606416,0.006122182435007179,3,"[0.048, 0.078]"
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.05625064671198099,0.03443929358594453,0.07742831770300605,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.05415571984875822,0.03241989062135885,0.07372084237702274,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 44 (same seed, same test images and patient draws)",0.05312320838350304,0.03251047621418985,0.07486804081638146,,,
+1,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,mean of 3 seed-matched pairs,0.05450985831474742,0.03586432994967072,0.07272423444125585,0.001593511268999414,3,"[0.051, 0.058]"
+6,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 42 (same seed, same test images and patient draws)",0.06969972702456784,0.013370421654385437,0.12134301760288625,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 43 (same seed, same test images and patient draws)",0.07924086832185107,0.027541999813313903,0.13169688334388685,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 44 (same seed, same test images and patient draws)",-0.0021318081372676545,-0.047908647581507625,0.04414126844071619,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auroc,mean of 3 seed-matched pairs,0.048936262403050414,0.007028385121758134,0.08815008991152806,0.04448279685279308,2,"[-0.062, 0.159]"
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.08761382153620195,0.03333698568761275,0.13164741758246026,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.1316147117815445,0.06393168690267054,0.1955749502951133,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.056286798167271446,0.006680452518004904,0.10469452257398057,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,mean of 3 seed-matched pairs,0.09183844382833929,0.044816018728626866,0.13490877752828004,0.0378412369975304,3,"[-0.002, 0.186]"
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.05204494363001955,0.005585190249940866,0.09589219801072214,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.032158859905950354,-0.012539154521462407,0.07935262167894258,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 44 (same seed, same test images and patient draws)",-0.01162148077443037,-0.061678724792277186,0.03457299806558686,,,
+6,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,mean of 3 seed-matched pairs,0.024194107587179842,-0.014190104695219762,0.06407887682404576,0.03257194127982556,2,"[-0.057, 0.105]"
+6,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 42 (same seed, same test images and patient draws)",0.08187309172972257,0.05256881430495083,0.11311920025163602,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 43 (same seed, same test images and patient draws)",0.09398811894331616,0.0509444925403498,0.13411015293398645,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 44 (same seed, same test images and patient draws)",0.09730187176423744,0.05662929886319649,0.1339461887281749,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auroc,mean of 3 seed-matched pairs,0.09105436081242539,0.05918860709329366,0.12063484199246362,0.008122008120919783,3,"[0.071, 0.111]"
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.08674635597686331,0.0480492204792127,0.12464948310937111,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.10895978716288185,0.056679352812506634,0.15453995596179937,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.09963355212306624,0.056333431182767284,0.13674584791938146,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.0984465650876038,0.05811087157671877,0.1352196511274178,0.011154184637648877,3,"[0.071, 0.126]"
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.05927740561951733,0.030563351614629083,0.09084052842332517,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.09492490496145256,0.04825359116933971,0.13454679466743033,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 44 (same seed, same test images and patient draws)",0.09512149847055729,0.058955814462919046,0.127542820491934,,,
+6,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,mean of 3 seed-matched pairs,0.08310793635050906,0.05145384484722321,0.11163611282382244,0.020638079087999237,3,"[0.032, 0.134]"
+60,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 42 (same seed, same test images and patient draws)",0.05586897179253869,0.011800271661015263,0.09701803921613908,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 43 (same seed, same test images and patient draws)",0.02654361107500325,-0.004138046197980735,0.0567323441971475,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auroc,"seed 44 (same seed, same test images and patient draws)",-0.0023657870791627955,-0.04117982180093574,0.0345745568035435,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auroc,mean of 3 seed-matched pairs,0.026682265262793048,-0.004998610486120538,0.056765292207454306,0.029117627031561955,2,"[-0.046, 0.099]"
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.08374644221425476,0.034900458464187864,0.128356653235753,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.04521968343113936,0.005569901955118567,0.08387031088407396,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.026005995079624755,-0.013886220775873398,0.06686938436136015,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_malignant,mean of 3 seed-matched pairs,0.05165737357500629,0.014808058139069148,0.08746578239023,0.029403617117934343,3,"[-0.021, 0.125]"
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.018684430693585274,-0.021564097316663738,0.062232727948961716,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.0015960551695647363,-0.02734874860940573,0.03876340175549188,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,"seed 44 (same seed, same test images and patient draws)",-0.02467827390545163,-0.0616767821954367,0.018046362514810104,,,
+60,CLEAN_realsyn - CLEAN_real,cbis,auprc_benign,mean of 3 seed-matched pairs,-0.0014659293474338735,-0.030197813576258607,0.03333604140569069,0.021842913025111564,2,"[-0.056, 0.053]"
+60,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 42 (same seed, same test images and patient draws)",0.06071286340103543,0.029063648907236943,0.09419775094457865,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 43 (same seed, same test images and patient draws)",0.037793707686180844,0.011387083629635152,0.06404220290100533,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auroc,"seed 44 (same seed, same test images and patient draws)",0.07523231116421081,0.03490368526969024,0.11297174827971597,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auroc,mean of 3 seed-matched pairs,0.057912960750475695,0.02948059799123565,0.08530559933089774,0.018875694655713943,3,"[0.011, 0.105]"
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 42 (same seed, same test images and patient draws)",0.0660780617559612,0.024418720737716317,0.1071431641471527,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 43 (same seed, same test images and patient draws)",0.03371162239540226,-0.0011308531998831636,0.07008550104255278,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,"seed 44 (same seed, same test images and patient draws)",0.07550919559789859,0.029156246846286808,0.12113828820804272,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_malignant,mean of 3 seed-matched pairs,0.05843295991642069,0.0223951181033767,0.09408539266972564,0.021922476320142742,3,"[0.004, 0.113]"
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 42 (same seed, same test images and patient draws)",0.049739771555081136,0.021666338647125895,0.07877916490731927,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 43 (same seed, same test images and patient draws)",0.04638348599501263,0.017689174150401894,0.06876995151855932,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,"seed 44 (same seed, same test images and patient draws)",0.06111058090531152,0.026313958846582643,0.09426861623248889,,,
+60,CLEAN_realsyn - CLEAN_real,bcdr,auprc_benign,mean of 3 seed-matched pairs,0.0524112794851351,0.02737180292687199,0.07637270507269808,0.007718454967770023,3,"[0.033, 0.072]"

@@ -1,0 +1,15 @@
+# Environment used for all reported classifier runs and analyses (Python 3.12, CUDA 12.1 build of torch).
+torch==2.5.1
+torchvision==0.20.1
+opacus==1.5.4
+numpy==2.4.4
+scipy==1.18.0
+scikit-learn==1.9.0
+pillow==12.2.0
+pyyaml==6.0.3
+matplotlib==3.11.1
+pytest==9.1.1
+# Optional, CC-NET training/generation (pip install -e ".[generation]")
+# diffusers==0.30.3  transformers==4.45.2  accelerate==1.0.1
+# Optional, image-quality metrics (pip install -e ".[quality]")
+# pytorch-fid==0.3.0  frd-score==1.0.1
