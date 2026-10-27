@@ -81,7 +81,7 @@ def clean_state_dict_keys(state_dict):
 
 def load_model(checkpoint_path, model_type='resnet50', device='cuda'):
     """Load model from checkpoint. Handles dropout heads added during training."""
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=True)
     dropout_prob = (
         float(checkpoint.get("dropout", 0.3))
         if isinstance(checkpoint, dict)

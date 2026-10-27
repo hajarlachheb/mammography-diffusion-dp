@@ -3,7 +3,9 @@
 These files are aggregates only: no images, no per-image predictions, no patient identifiers. All values were computed
 from the per-image predictions of the 21 accepted runs by the code in `src/mammo_diffusion_dp/metrics/`. They were
 independently re-verified before release; `scripts/compute_statistics.py` reproduces every value from the original
-prediction files.
+prediction files. The original per-image predictions are not included, so readers can reproduce the published
+confidence-interval tables from these supplied CSVs, but cannot independently recompute the patient-bootstrap draws or
+intervals from this repository.
 
 | File | Contents |
 |---|---|

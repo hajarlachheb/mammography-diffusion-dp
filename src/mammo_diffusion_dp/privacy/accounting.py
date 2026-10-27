@@ -24,6 +24,7 @@ def calibrate_like_trainer(n, batch_size, epsilon, delta=1e-4, epochs=300, max_g
     dl = DataLoader(ds, batch_size=batch_size, shuffle=True, sampler=None, num_workers=0)
     model = torch.nn.Linear(1, 2)
     opt = torch.optim.AdamW(model.parameters(), lr=1e-5, weight_decay=1e-8)
+    # Match the experimental calibration path; this is not a production RNG setting.
     pe = PrivacyEngine(accountant="rdp", secure_mode=False)
     _, opt, dpl = pe.make_private_with_epsilon(module=model, optimizer=opt, data_loader=dl, epochs=epochs,
                                                target_epsilon=epsilon, target_delta=delta, max_grad_norm=max_grad_norm)

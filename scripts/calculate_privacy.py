@@ -51,7 +51,7 @@ def main(argv=None):
                       f"divisor={res['expected_batch_size_divisor']} {'MATCH' if match else 'MISMATCH'}")
         sys.exit(0 if ok else 1)
     import torch
-    ck = torch.load(a.checkpoint, map_location="cpu", weights_only=False)
+    ck = torch.load(a.checkpoint, map_location="cpu", weights_only=True)
     spe = steps_per_epoch(a.n, a.batch_size)
     q = 1 / spe
     out = {"noise_multiplier": ck["noise_multiplier"], "sample_rate": q, "selected_epoch_0based": ck["epoch"],

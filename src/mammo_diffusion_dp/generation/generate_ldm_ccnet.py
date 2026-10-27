@@ -5,7 +5,7 @@ Generate synthetic images using ccnet-style LDM (pretrained UNet fine-tuned).
 Based on Richard's ccnet approach with SD 2.1-base pretrained models.
 
 Usage:
-    python src/generation/generate_ldm_ccnet.py \
+    python -m mammo_diffusion_dp.generation.generate_ldm_ccnet \
         --model_path models/ldm_ccnet_mammography/diffusion_best_model.pth \
         --output_dir data/synthetic_ldm_ccnet \
         --source_model Manojb/stable-diffusion-2-1-base \
@@ -490,7 +490,7 @@ def main():
     print("=" * 60)
 
     print("\nLoading trained checkpoint metadata...")
-    checkpoint = torch.load(args.model_path, map_location='cpu')
+    checkpoint = torch.load(args.model_path, map_location='cpu', weights_only=True)
     model_state = checkpoint['model'] if 'model' in checkpoint else checkpoint
     generator_architecture = checkpoint.get('generator_architecture', 'ccnet_v1')
     spatial_mask_conditioning = bool(

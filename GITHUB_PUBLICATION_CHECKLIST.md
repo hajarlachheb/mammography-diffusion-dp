@@ -1,13 +1,13 @@
 # GitHub publication checklist
 
-Work through this list in order. Keep the repository private until CI passes and the GitHub-rendered files have been
-reviewed.
+The repository is published at <https://github.com/hajarlachheb/mammography-diffusion-dp>. This checklist records the
+release review and provides checks for future updates.
 
 ## 1. Review the candidate locally
 
 ```bash
 cd midl_public_repo_candidate_v1
-git log --stat                 # exactly one commit
+git --no-pager log --stat -n 2 # review the release and subsequent updates
 git status --ignored           # nothing unexpected, ignored files listed separately
 git ls-files | less            # every file that would be published
 ```
@@ -23,11 +23,11 @@ Read, at minimum:
 ## 2. Complete the author actions (REPOSITORY_AUDIT.md A1–A6)
 
 - [x] **A1, author metadata.** `CITATION.cff` contains the confirmed name, affiliation and `repository-code`;
-  `NOTICE` contains the copyright holder. Set `date-released` when the repository is made public.
+  `NOTICE` contains the copyright holder; `date-released` is set to the public release date.
 - [x] **A1, commit author.** The placeholder identity was replaced with the confirmed name and GitHub noreply address:
   ```bash
   git config user.name "Hajar Lachheb"
-  git config user.email "hajarlachheb@users.noreply.github.com"
+  git config user.email "<id>+<username>@users.noreply.github.com"
   git commit --amend --reset-author --no-edit
   ```
 - [x] **A2, license.** The author confirmed Apache-2.0 and that no CC-NET source was copied verbatim.
@@ -49,20 +49,17 @@ find . -name __pycache__ -prune -exec rm -rf {} +; rm -rf src/*.egg-info .pytest
 grep -rnE "/(media|home|mnt)/|@[a-z0-9-]+\.(com|org|net)" -- $(git ls-files) | grep -v -e "tests/test_paths_and_cli.py" -e GITHUB_PUBLICATION_CHECKLIST.md   # expect: nothing
 ```
 
-## 4. Publish (only after explicit approval)
+## 4. Published repository and future updates
 
-1. **Create an empty repository on GitHub**, **private** first, with no README or license; e.g.
-   `mammography-diffusion-dp`.
-2. **Push:**
+The repository is public; do not create a second repository or repeat the initial-visibility steps. For a future update:
+
+1. **Push the reviewed change** to the existing `main` branch:
    ```bash
-   git branch -M main
-   git remote add origin git@github.com:<user>/mammography-diffusion-dp.git
-   git push -u origin main
+   git push origin main
    ```
-3. **Confirm the CI workflow passes.** Check the Actions tab ("tests").
-4. **Check the rendered pages.** View README, figures and docs on GitHub; links should resolve.
-5. **Make the repository public.** Settings → General → Change visibility.
-6. **Optional, later:**
+2. **Confirm the CI workflow passes** in the Actions tab ("tests").
+3. **Check the rendered pages** and confirm README, figures, docs and links are correct.
+4. **Optional, later:**
    - tag a release once the manuscript version is final;
    - archive it with Zenodo for a DOI;
    - add that DOI to `CITATION.cff` and the README.

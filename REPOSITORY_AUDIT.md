@@ -1,18 +1,20 @@
 # Repository audit: scientific-software review
 
 Date 2026-10-27. Reviewer stance: a skeptical scientific-software reviewer who checked each claim against the private
-originals before writing it here.
+originals before writing it here. Updated for the public release and the post-release safety/documentation changes.
 
-## Verdict: **READY FOR PRIVATE CI STAGING**
+## Verdict: **PUBLIC RELEASED**
 
-**What READY FOR PRIVATE CI STAGING means here.** The candidate:
+The repository is public at <https://github.com/hajarlachheb/mammography-diffusion-dp>. The candidate:
 - contains no protected clinical data, secrets or machine-specific paths;
-- installs, and its tests pass;
+- installs from the pinned `requirements.txt`;
+- passes the GitHub Actions CPU test workflow;
 - matches the executed code;
-- regenerated every included table and figure exactly in the audited environment.
+- regenerates the published tables and figures from the supplied aggregate CSVs.
 
-The author confirmed A1–A4 and A6 on 2026-10-27. A5 is deferred until a manuscript citation exists. Public visibility
-remains gated on passing CI, a final review of the GitHub-rendered files, and re-verification of the candidate.
+The author confirmed A1–A4 and A6 on 2026-10-27. A5 is deferred until a manuscript citation exists. The exact CC-NET
+pool, its original sampling settings and per-image predictions are unavailable; the corresponding limits on
+reproducibility are described below and in `docs/reproducibility.md`.
 
 ## 1. Can another researcher install the code?
 
@@ -29,8 +31,9 @@ environment. `requirements.txt` pins the versions used for the reported runs.
 ## 2. Does the code match the published methods?
 
 **Yes, for the classifier experiments.**
-- **Unchanged code.** `train_classifier.py` and `evaluate_classifier.py` are byte-identical to the versions that
-  produced all 21 runs.
+- **Training behavior.** The reported training protocol is unchanged. Checkpoint loading was subsequently hardened
+  with `weights_only=True`; this does not change model training or inference for the supported tensor-and-primitive
+  checkpoint format.
 - **Commands.** `scripts/run_experiment.py` generates training commands whose flags are identical to the original
   Stage 1, Stage 2 and M1 launchers. This was checked flag by flag for each condition.
 - **Privacy calibration.** `scripts/calculate_privacy.py calibrate` reproduces σ, q and the step count of every
@@ -44,8 +47,10 @@ environment. `requirements.txt` pins the versions used for the reported runs.
 | Experiment | Assessment |
 |---|---|
 | Real-only (A) and M1 (C) | Yes, given the patch dataset and a GPU. Not re-run for this release; bitwise identity of weights is not expected on GPUs |
-| Real+CC-NET (B) | The protocol is fully specified. The exact synthetic pool is **not distributed**, and the generation settings of that pool were not recorded, so numbers depend on the pool |
-| Statistics | Yes. `compute_statistics.py` reproduced all **1,332** released values exactly from the original per-image predictions |
+| Real+CC-NET (B) | Only partially. The exact synthetic pool is **not distributed**, and its original sampling settings were not recorded, so a regenerated pool may produce different results |
+| Published tables and figures | Yes. They can be regenerated from the supplied aggregate CSVs |
+| Bootstrap intervals | The published intervals are supplied in the CSVs; independently recomputing them requires unreleased per-image predictions |
+| Statistics | `compute_statistics.py` reproduced all **1,332** released values from the original per-image predictions, which are not distributed |
 | Data preparation | Yes. The rebuilt training manifest is identical to the original (5,208 entries); split validation passes on the original data |
 | FID / FRDv1 | Ported with path changes only, and **not re-executed after porting**. The MCGAN arrangement step is verified byte- and name-identical |
 
@@ -60,20 +65,23 @@ environment. `requirements.txt` pins the versions used for the reported runs.
 
 ## 5. Do the results regenerate from the included summary files?
 
-**Yes.**
-- **Tables:** `scripts/reproduce_tables.py` output is identical to the manuscript tables (bodies compared line by line).
-- **Figures:** `scripts/reproduce_figures.py` output is pixel-identical to the manuscript figures (0 differing pixels).
+**Yes, from the distributed aggregate CSVs.**
+- **Tables:** `scripts/reproduce_tables.py` regenerates the published tables (bodies compared line by line).
+- **Figures:** `scripts/reproduce_figures.py` regenerates the published figures.
 - **Consistency:** tests check that every summary mean, SD and paired difference follows from the per-seed rows.
+- **Bootstrap computation:** the published intervals can be reproduced as table entries from those CSVs, but resampling
+  cannot be independently recomputed without the unreleased per-image predictions.
 
 ## 6. Do the privacy claims match the implemented mechanisms?
 
-**Yes.** The documentation states image-level, classifier-only DP. It states that the generator is non-private, that
-selection is not covered, and that patient-level guarantees are weak. Synthetic images are not presented as anonymous.
-These statements match the code: DP-SGD wraps only the trainer; the generator scripts have no DP.
+**The scope is correctly limited.** The documentation states image-level, classifier-only DP: the generator is
+non-private, validation selection is not covered, and patient-level guarantees are weaker. The reported experiments
+use Opacus `secure_mode=False` (standard, non-cryptographic RNG) for reproducibility; production use requires secure
+mode and retraining. Synthetic images are not presented as anonymous.
 
 ## 7. Do the tests pass?
 
-**Yes: 44 passed, 0 failed, about 46 s on CPU.** The tests use only artificial fixtures. They cover:
+**Yes: 44 passed, 0 failed in GitHub Actions on CPU.** The tests use only artificial fixtures. They cover:
 - split, overlap and label checks;
 - head architecture and the 296,066 trainable parameters;
 - Opacus per-sample gradients with the non-in-place head;
@@ -93,15 +101,16 @@ These statements match the code: DP-SGD wraps only the trainer; the generator sc
 **Licensing.** The repository's original code is offered under Apache-2.0. That is compatible with the Apache-2.0
 upstream projects (mammo_dp, ccnet) it follows. No third-party source files are vendored.
 
-## 9. Is the repository suitable for public release?
+## 9. Public release status
 
-**After the author actions below, yes.**
+The repository has been published. The author decisions are recorded below; manuscript citation details remain
+deferred until available.
 
 ### Author decisions (A1–A6)
 
 | # | Action |
 |---|---|
-| A1 | **Confirmed.** `CITATION.cff` and `NOTICE` identify Hajar Lachheb and the confirmed affiliation; the commit uses the GitHub noreply address. Set `date-released` when the repository is made public. |
+| A1 | **Confirmed.** `CITATION.cff` and `NOTICE` identify Hajar Lachheb and the confirmed affiliation; the commit uses the GitHub noreply address and `date-released` is set. |
 | A2 | **Confirmed.** Apache-2.0 is approved; the author confirmed no CC-NET source was copied verbatim. |
 | A3 | **Confirmed.** The author confirmed the CBIS-DDSM terms and the appropriateness of pointing to `mammo_dp/dataset16062024`. |
 | A4 | **Confirmed.** Keep `Manojb/stable-diffusion-2-1-base`; its third-party mirror provenance is documented in `THIRD_PARTY_LICENSES.md`. |

@@ -1017,7 +1017,7 @@ def main():
                 f'Warm-start checkpoint does not exist: {warm_start_path}'
             )
         logger.info('Loading warm-start metadata from %s', warm_start_path)
-        warm_start_checkpoint = torch.load(warm_start_path, map_location='cpu')
+        warm_start_checkpoint = torch.load(warm_start_path, map_location='cpu', weights_only=True)
         if not isinstance(warm_start_checkpoint, dict) or 'model' not in warm_start_checkpoint:
             raise ValueError(
                 '--warm_start_from must be a CCNET training checkpoint containing model weights'
@@ -1236,7 +1236,7 @@ def main():
     best_loss = float('inf')
     if args.resume_from and Path(args.resume_from).exists():
         logger.info(f"Resuming from {args.resume_from}")
-        checkpoint = torch.load(args.resume_from, map_location=device)
+        checkpoint = torch.load(args.resume_from, map_location=device, weights_only=True)
         model.load_state_dict(checkpoint['model'])
         if 'optimizer' not in checkpoint:
             raise ValueError(

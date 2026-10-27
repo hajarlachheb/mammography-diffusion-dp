@@ -11,8 +11,16 @@
 The calibrated σ for each condition, and how to recompute it, are in `configs/privacy/noise_multipliers.yaml` and
 `scripts/calculate_privacy.py`.
 
+**Random-number generator.** The reported experiments and calibration use Opacus `secure_mode=False` to match the
+experimental runs. This uses a standard PyTorch RNG rather than a cryptographically secure RNG; it is not the setting
+to use for a production privacy release. Production use requires retraining with `secure_mode=True` and Opacus's
+`torchcsprng` dependency. Enabling secure mode after training does not make an existing checkpoint secure.
+
 **Report the full-run ε.** The full-run ε (0.999 / ≤ 6 / 59.99) is the budget to report. The ε at the selected
 checkpoint is lower in some runs because selection may pick an earlier epoch (e.g. 4.56 at ε_target = 6).
+
+The reported ε values are the classifier DP-SGD accountant's bounds; they do not make the generator-to-classifier
+pipeline end-to-end differentially private.
 
 ## What (ε, δ) does cover
 

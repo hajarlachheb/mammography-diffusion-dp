@@ -1,6 +1,6 @@
 # Security and privacy audit
 
-Date 2026-10-27. Candidate commit: see `git log` (one commit, created only after the scan below came back clean).
+Date 2026-10-27. Review covers the initial public release and subsequent safety/documentation updates; see `git log`.
 
 ## What was scanned
 
@@ -29,14 +29,20 @@ Date 2026-10-27. Candidate commit: see `git log` (one commit, created only after
   - Hugging Face SD-2.1 for CC-NET;
   - pytorch-fid Inception weights.
 - **No credentials** are read or required. `.env.example` contains only relative directory paths.
-- **Checkpoint loading uses `torch.load(weights_only=False)`.** This is unchanged executed code. Loading untrusted
-  checkpoints with it can execute code. This is documented for users; only load checkpoints you created.
+- **Checkpoint loading uses `torch.load(weights_only=True)`** to restrict deserialization to tensors and supported
+  primitive data, avoiding arbitrary pickle-code execution. Do not load untrusted checkpoints: malformed files can
+  still exhaust resources, and legacy checkpoints containing custom Python objects may fail to load. Convert legacy
+  files only in a trusted, isolated environment.
+- **Opacus secure RNG is disabled** (`secure_mode=False`) to match the reported experimental runs. This uses a standard
+  PyTorch RNG, not a cryptographically secure RNG. It is not appropriate for a production privacy release; see
+  `docs/privacy.md` for the required secure-mode retraining guidance.
 - **Path checks.** `run_experiment.py`, `build_training_folders.py` and `organize_mcgan.py` refuse to overwrite existing
   directories.
 
 ## Git staging check
 
-- **Staged content.** `git ls-files` after staging contains no ignored or sensitive path.
+- **Tracked content.** The published tree contains no ignored or sensitive path.
 - **`.gitignore` behaviour.** Tested with `git check-ignore` on sample paths: `.env`, `data/`, `runs/`, `*.pth`,
   `*.png` outside `figures/publication/`, `*.log`, `*.npz`, `__pycache__/`.
-- **History.** The commit history contains exactly one commit, made after this scan.
+- **History.** Review the current commit and its changes with `git log`; release updates are kept in the normal
+  project history.

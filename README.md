@@ -100,7 +100,8 @@ The manuscript's Fig. 2 and Fig. S1 show real and synthetic mammography patches.
 ## Installation
 
 ```bash
-git clone <repository-url> && cd mammography-diffusion-dp
+git clone https://github.com/hajarlachheb/mammography-diffusion-dp.git
+cd mammography-diffusion-dp
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt   # exact versions used for the reported runs (torch 2.5.1, opacus 1.5.4)
 pip install -e ".[dev]"           # add [generation] for CC-NET, [quality] for FID / FRDv1
@@ -147,10 +148,10 @@ For CC-NET training and generation, and for FID / FRDv1, see [docs/experiments.m
 | Component | Status | Notes |
 |---|---|---|
 | Data preparation and split checks | **Fully reproducible** | Rebuilt training manifest identical to the one used (5,208 entries) |
-| Classifier training and evaluation code | **Executed code, unchanged** | `train_classifier.py` and `evaluate_classifier.py` are byte-identical to the versions that produced all 21 runs |
+| Classifier training and evaluation | **Protocol unchanged** | The reported training protocol is unchanged; checkpoint loading now uses restricted `weights_only=True` deserialization |
 | Real-only DP (A) and M1 (C) | **Fully reproducible** given the data and a GPU | Command flags identical to the original launchers. Bitwise-identical weights are not expected (GPU non-determinism) |
-| Real+CC-NET DP (B) | **Partially reproducible** | The exact 3,000-image CC-NET pool is not distributed. A regenerated pool will differ |
-| Statistics (CIs, paired differences) | **Fully reproducible** | Reproduced all 1,332 reported values exactly from the original prediction files |
+| Real+CC-NET DP (B) | **Partially reproducible** | Neither the exact 3,000-image pool nor its original sampling settings are available; a regenerated pool will differ |
+| Published statistics and CIs | **Available in the supplied CSVs** | Reproduce the published tables and figures from these CSVs; independently recomputing patient-bootstrap intervals requires per-image predictions, which are not released |
 | Tables and figures | **Fully reproducible** from the included CSVs | Checked byte- and pixel-identical to the manuscript versions |
 | Privacy calibration and accounting | **Fully reproducible** (CPU) | — |
 | FID / FRDv1 | **Partially reproducible** | Code ported with path changes only, and not re-executed after porting. Needs the CC-NET pool |

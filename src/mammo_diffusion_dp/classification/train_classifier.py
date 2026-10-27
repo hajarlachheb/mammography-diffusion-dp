@@ -953,7 +953,7 @@ def main():
         if not pretrained_path.exists():
             raise FileNotFoundError(f"Pretrained checkpoint not found: {pretrained_path}")
         print(f"Loading pretrained checkpoint from: {pretrained_path}", flush=True)
-        checkpoint = torch.load(pretrained_path, map_location=device)
+        checkpoint = torch.load(pretrained_path, map_location=device, weights_only=True)
         state_dict = get_clean_state_dict_from_checkpoint(checkpoint)
         missing, unexpected = model.load_state_dict(state_dict, strict=False)
         if missing or unexpected:
@@ -1107,6 +1107,7 @@ def main():
         else:
             optimizer = optim.Adam(optimizer_param_groups, weight_decay=args.weight_decay)
 
+        # Match the experimental runs; production use requires secure_mode=True and retraining.
         privacy_engine = PrivacyEngine(accountant=args.dp_accountant, secure_mode=False)
 
         noise_mul = args.noise_multiplier
